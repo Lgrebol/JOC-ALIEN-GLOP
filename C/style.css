@@ -1,0 +1,373 @@
+body {
+    display: flex;
+    font-family: "Rubik", sans-serif;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url(img/Fons3.jpg);
+    background-size: cover;
+    position: relative;
+}
+
+.mazo, .jugador, .banca, .baralla-cartes {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mazo {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.baralla-cartes {
+    left: 54%;
+    top: 43,5%;
+}
+.cartes-tirades {
+    display: flex;
+    gap: 10px;
+    position: relative;
+}
+
+.jugador {
+    bottom: 10px;
+    left: 10px;
+    align-items: flex-start;
+    z-index: 2;
+}
+
+.banca {
+    top: 10px;
+    right: 10px;
+    align-items: flex-end;
+    z-index: 2;
+}
+
+.info-jugador {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    z-index: 2;
+}
+
+.jugador-imatge {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    z-index: 2;
+}
+
+.jugador-nom {
+    color: white;
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+hr {
+    width: 100%;
+    border: 1px solid white;
+    margin-bottom: 10px;
+}
+
+.cartes {
+    display: flex;
+    gap: 10px;
+    z-index: 2;
+}
+
+.carta {
+    width: 100px;
+    height: 150px;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 2;
+}
+
+.carta1 {
+    width: 100px;
+    height: 150px;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+.carta1 img {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: auto;
+    object-fit: contain;
+}
+
+.carta img {
+    width: 40%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.carta:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.mazo:hover .carta:hover{
+    transform: translateY(0px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.carta.no-hover-animation {
+    transition: none !important;
+}
+
+.alien-container-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 5px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.pulsate-border {
+    animation: pulsate 1s infinite;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.25);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulsate {
+    animation: pulse 1s infinite;
+}
+
+
+@keyframes pulsate {
+    0% {
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(255, 255, 255, 1);
+    }
+    100% {
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+    }
+}
+
+.carta .value {
+    position: absolute;
+    font-size: 14px;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.carta .value.top {
+    top: 5px;
+    left: 5px;
+}
+
+.carta .value.bottom {
+    bottom: 5px;
+    right: 5px;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    margin: 5px 0;
+    z-index: 2;
+}
+
+.snowflake {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: snowfall linear infinite;
+}
+
+@keyframes snowfall {
+    0% {
+        opacity: 1;
+        transform: translateY(-60vh) translateX(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(30vh) translateX(50px) scale(0.2);
+    }
+}
+
+@keyframes snowfall-left {
+    0% {
+        opacity: 1;
+        transform: translateY(-60vh) translateX(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(30vh) translateX(-50px) scale(0.2);
+    }
+}
+
+@keyframes snowfall-right {
+    0% {
+        opacity: 1;
+        transform: translateY(-60vh) translateX(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(30vh) translateX(70px) scale(0.2);
+    }
+}
+
+.flake1, .flake5, .flake6, .flake7, .flake11,
+.flake12, .flake13, .flake14, .flake15, .flake16, .flake17, .flake18, .flake19, .flake20, .flake21, .flake22, .flake23, .flake24, .flake25,
+.flake26, .flake27, .flake28, .flake29, .flake30 {
+    width: 8px;
+    height: 8px;
+    opacity: 0.6;
+    animation-duration: 10s;
+}
+.flake2, .flake3, .flake4,  .flake8, .flake9, .flake10{
+    animation-duration: 14s;
+}
+
+.flake12, .flake18, .flake24, .flake30 {
+    animation-duration: 12s;
+}
+
+.flake13, .flake19, .flake25 {
+    animation-duration: 14s;
+}
+
+.flake14, .flake20, .flake26 {
+    animation-duration: 16s;
+}
+
+.flake15, .flake21, .flake27 {
+    animation-duration: 18s;
+}
+
+.flake16, .flake22, .flake28 {
+    animation-duration: 20s;
+}
+
+.flake17, .flake23, .flake29 {
+    animation-duration: 22s;
+}
+
+.flake1, .flake4, .flake7, .flake10, .flake13, .flake16, .flake19, .flake22, .flake25, .flake28 {
+    animation-name: snowfall;
+}
+
+.flake2, .flake5, .flake8, .flake11, .flake14, .flake17, .flake20, .flake23, .flake26, .flake29 {
+    animation-name: snowfall-left;
+}
+
+.flake3, .flake6, .flake9, .flake12, .flake15, .flake18, .flake21, .flake24, .flake27, .flake30 {
+    animation-name: snowfall-right;
+}
+
+/* Animació de transferència de carta */
+@keyframes transferenciaCarta {
+    0% { opacity: 0; transform: translateY(0); }
+    100% { opacity: 1; transform: translateY(-100%); }
+}
+.preso {
+    margin-left: 10px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px; /* Espai entre les cartes */
+}
+.carta-preso, .carta-preso-banca {
+    margin-left: 10px;
+    width: 50px; /* Mida de la carta a la zona de presó */
+    height: 65px;
+    background-color: white;
+    opacity: 1;
+    border: 1px solid black;
+    border-radius: 12px;
+}
+/* CSS per fixar la posició dels divs de presó */
+.cartes-tirades .carta-preso {
+    position: absolute;
+}
+
+/* CSS per desactivar l'arrossegament dels divs de presó */
+.cartes-tirades .carta-preso, .carta-preso-banca {
+    pointer-events: none;
+}
+
+.carta-preso .carta, .carta-preso-banca .carta  {
+    width: 100%;
+    height: 100%;
+}
+.carta-preso:hover .carta, .carta-preso-banca:hover .carta  {
+    transform: translateY(0px);
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-1px); }
+    20%, 40%, 60%, 80%, 100% { transform: translateX(1px); }
+}
+
+.vibrate {
+    animation: shake 0.3s;
+}
+
+.ocultar-cartes .carta {
+    background-color: white;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+
+}
